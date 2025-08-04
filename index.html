@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NGO Foundation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <img src="logo.jpeg" alt="logo" />
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="hero">
+      <img src="heroimg.jpeg" alt="NGO Banner" class="hero-img" />
+      <div class="hero-text">
+        <h1>Together We Can Make a Difference</h1>
+        <p>Join hands with us to build a better future for those in need.</p>
+        <button class="donate-btn">Donate Now</button>
+      </div>
+    </section>
+    <section class="cards-section">
+      <h1>Our Schemes</h1>
+      <div class="cards-container">
+        <div class="card">
+          <img src="scheme1.jpeg" alt="" class="card-img" />
+          <div class="card-content">
+            <h2>Free Education for All</h2>
+            <p>
+              We provide free education to children in the community, ensuring
+              every child gets the opportunity to learn and grow.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="scheme2.jpeg" alt="" />
+          <div class="card-content">
+            <h2>Skill Development Program</h2>
+            <p>
+              Helping adults gain valuable skills to improve their livelihoods
+              and contribute to the community.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="scheme3.jpeg" alt="Scheme 3" class="card-img" />
+          <div class="card-content">
+            <h2>Women Empowerment</h2>
+            <p>
+              Providing educational and financial support to women to help them
+              lead an independent life.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="scheme4.png" alt="Scheme 4" class="card-img" />
+          <div class="card-content">
+            <h2>Health and Hygiene Awareness</h2>
+            <p>
+              Teaching communities about the importance of health and hygiene to
+              create a cleaner, healthier environment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <button class="know-more-btn">Know more</button>
+    <section class="impact-section">
+      <h2>Our Impact</h2>
+      <div class="impact-cards">
+        <div class="impact-card">
+          <h3 class="counter" data-target="500">0</h3>
+          <p>Children Educated</p>
+        </div>
+        <div class="impact-card">
+          <h3 class="counter" data-target="100">0</h3>
+          <p>Women Empowered</p>
+        </div>
+        <div class="impact-card">
+          <h3 class="counter" data-target="50">0</h3>
+          <p>Skill Workshops</p>
+        </div>
+        <div class="impact-card">
+          <h3 class="counter" data-target="20">0</h3>
+          <p>Health Camps</p>
+        </div>
+      </div>
+    </section>
+    <section class="people-view">
+  <h2>People's View</h2>
+  <div class="testimonial-container">
+    <div class="testimonial-card">
+      <p>"Basti Ki Pathshala has changed my life. I never imagined I would get to study again. Thank you for this opportunity!"</p>
+      <h4>- Asha Devi, Student</h4>
+    </div>
+    <div class="testimonial-card">
+      <p>"The skill development sessions helped me start my own tailoring business. I feel independent and proud."</p>
+      <h4>- Rekha Kumari, Beneficiary</h4>
+    </div>
+    <div class="testimonial-card">
+      <p>"Volunteering here was the most fulfilling experience. The smiles on these kids' faces say it all."</p>
+      <h4>- Rohan Singh, Volunteer</h4>
+    </div>
+  </div>
+</section>
+
+    <footer class="footer">
+  <p>&copy; 2025 Basti Ki Pathshala. All rights reserved.</p>
+</footer>
+    <script>
+      const counters = document.querySelectorAll(".counter");
+      let started = false;
+
+      function animateCounters() {
+        counters.forEach((counter) => {
+          const target = +counter.getAttribute("data-target");
+          const updateCount = () => {
+            const current = +counter.innerText;
+            const increment = Math.ceil(target / 100);
+            if (current < target) {
+              counter.innerText = current + increment;
+              setTimeout(updateCount, 30);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          updateCount();
+        });
+      }
+
+      function handleScroll() {
+        const section = document.querySelector(".impact-section");
+        const sectionTop = section.getBoundingClientRect().top;
+        const screenHeight = window.innerHeight;
+
+        if (!started && sectionTop < screenHeight - 100) {
+          started = true;
+          animateCounters();
+        }
+      }
+
+      window.addEventListener("scroll", handleScroll);
+    </script>
+  </body>
+</html>
